@@ -1,0 +1,54 @@
+﻿@page
+@model DonateBloodModel
+
+@{
+    ViewData["Title"] = "DonateBlood";
+}
+
+<h1>DonateBlood</h1>
+
+<h4>Donation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Donation.Disease" class="control-label"></label>
+                <textarea asp-for="Donation.Disease" class="form-control"></textarea>
+                <span asp-validation-for="Donation.Disease" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Donation.Age" class="control-label"></label>
+                <input asp-for="Donation.Age" class="form-control" />
+                <span asp-validation-for="Donation.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Donation.BloodGroup" class="control-label"></label>
+                <select asp-for="Donation.BloodGroup"
+                        class="form-control"
+                        asp-items="@Html.GetEnumSelectList<BloodBank.Models.BloodGroup>()">
+                    <option>Select BloodGroup ...</option>
+                </select>
+                <span asp-validation-for="Donation.BloodGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Donation.Quantity" class="control-label"></label>
+                <input asp-for="Donation.Quantity" class="form-control" />
+                <span asp-validation-for="Donation.Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Donate" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/UserHome">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

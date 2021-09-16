@@ -1,0 +1,82 @@
+﻿@page
+@model BloodBank.Areas.Admin.Pages.AdminHomeModel
+
+@{
+    ViewData["Title"] = "AdminHome";
+}
+
+
+<section class="AdminHome">
+    <div class="container">
+        <div class="row ">
+            @foreach (var item in Model.BloodStock)
+            {
+                <div class="col-md-3 col-sm-6  BloodGroup">
+                    <div class="p-5">
+                        @{
+
+                            string imgName = item.BloodGroup + ".jpg";
+                        }
+                        <img src="~/assets/img/@imgName" alt="" style="width:100%;height:100%; border-radius:50%; border:1px solid">
+                        <div class="text-center pt-1">
+                            <p class="fw-bold">@Html.DisplayFor(modelItem => item.BloodGroup)</p>
+                            <p>@Html.DisplayFor(modelItem => item.Quantity)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+    </div>
+</section>
+<!-- End Portfolio Section -->
+<section class="AdminHome">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6  box">
+                <p>total requests</p>
+                <p>@ViewData["TotalBloodReq"]</p>
+            </div>
+            <div class="col-md-3 col-sm-6  box">
+                <p>Pending requests</p>
+                <p>@ViewData["NumOfPendingReq"]</p>
+
+            </div>
+            <div class="col-md-3 col-sm-6  box">
+                <p>approved requests</p>
+                <p>@ViewData["NumOfApprovedReq"]</p>
+
+            </div>
+            <div class="col-md-3 col-sm-6  box">
+                <p>rejected requests</p>
+                <p>@ViewData["NumOfRejectedReq"]</p>
+
+            </div>
+            <div class="col-md-3 col-sm-6  box">
+                <p>total donations</p>
+                <p>@ViewData["TotalBloodDon"]</p>
+
+            </div>
+            <div class="col-md-3 col-sm-6  box">
+                <p>Pending donations</p>
+                <p>@ViewData["NumOfPendingDon"]</p>
+
+            </div>
+            <div class="col-md-3 col-sm-6  box">
+                <p>approved donations</p>
+                <p>@ViewData["NumOfApprovedDon"]</p>
+
+            </div>
+            <div class="col-md-3 col-sm-6  box">
+                <p>rejected donations</p>
+                <p>@ViewData["NumOfRejectedDon"]</p>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<!-- End Portfolio Section -->

@@ -1,0 +1,40 @@
+﻿@page
+@model BloodBank.Areas.Admin.Pages.BloodStockModel
+
+@{
+    ViewData["Title"] = "BloodStock";
+}
+
+<h1>BloodStock</h1>
+
+<p>
+    <a asp-page="/CreateStock">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodStock[0].BloodGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodStock[0].Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BloodStock) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                <a asp-page="/EditStock" asp-route-id="@item.Id">Edit</a> 
+                 </td>
+        </tr>
+}
+    </tbody>
+</table>

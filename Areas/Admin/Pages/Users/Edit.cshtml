@@ -1,0 +1,63 @@
+﻿@page
+@model BloodBank.Areas.Admin.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+   
+}
+
+<h1>Edit</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.FristName" class="control-label"></label>
+                <input asp-for="Input.FristName" class="form-control" value="@Model.ApplicationUser.FirstName" />
+                <span asp-validation-for="Input.FristName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName" class="control-label"></label>
+                <input asp-for="Input.LastName" class="form-control" value="@Model.ApplicationUser.LastName" />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Input.Disease" class="control-label"></label>
+                <textarea asp-for="Input.Disease" class="form-control" ></textarea>
+                <span asp-validation-for="Input.Disease" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="Input.Picture" class="control-label"></label>
+                <input asp-for="Input.Picture" type="file" accept=".png, .jpg, .jpeg, .gif" class="form-control" />
+                <span asp-validation-for="Input.Picture" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ApplicationUser.Id" />
+            <div class="form-group">
+                <label asp-for="Input.UserName" class="control-label"></label>
+                <input asp-for="Input.UserName" class="form-control" value="@Model.ApplicationUser.UserName" />
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.PhoneNumber" class="control-label"></label>
+                <input asp-for="Input.PhoneNumber" class="form-control" value="@Model.ApplicationUser.PhoneNumber" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+                     <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" asp-route-id="@Model.ApplicationUser.Id" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

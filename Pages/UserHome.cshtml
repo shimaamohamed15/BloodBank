@@ -1,0 +1,84 @@
+﻿
+@page
+@model UserHomeModel
+
+
+@{
+    ViewData["Title"] = "UserHome";
+}
+
+<h1>UserHome</h1>
+
+
+<section class="UserHome">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6  box">
+                <p class="left">
+                    Pending requests
+                </p>
+                <p class="right">
+
+
+                    @Html.DisplayFor(model => model.NumOfPendingReq)
+
+
+                </p>
+
+            </div>
+            <div class="col-md-4 col-sm-6  box">
+                <p class="left">
+                    Approved requests
+                </p>
+                <p class="right">
+
+                    @Html.DisplayFor(model => model.NumOfApprovedReq)
+                </p>
+
+            </div>
+            <div class="col-md-4 col-sm-6  box">
+                <p class="left">
+                    Rejected requests
+                </p>
+                <p class="right">
+                    @Html.DisplayFor(model => model.NumOfRejectedReq)
+                </p>
+
+            </div>
+            <div class="col-md-4 col-sm-6  box">
+                <p class="left">
+                    Pending donations
+                </p>
+                <p class="right">
+
+
+                    @Html.DisplayFor(model => model.NumOfPendingDon)
+
+
+                </p>
+
+            </div>
+            <div class="col-md-4 col-sm-6  box">
+                <p class="left">
+                    Approved donations
+                </p>
+                <p class="right">
+
+                    @Html.DisplayFor(model => model.NumOfApprovedDon)
+                </p>
+
+            </div>
+            <div class="col-md-4 col-sm-6  box">
+                <p class="left">
+                    Rejected donations
+                </p>
+                <p class="right">
+                    @Html.DisplayFor(model => model.NumOfRejectedDon)
+                </p>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>

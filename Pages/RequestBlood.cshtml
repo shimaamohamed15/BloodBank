@@ -1,0 +1,57 @@
+﻿@page
+@model RequestBloodModel
+
+@{
+    ViewData["Title"] = "RequestBlood";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Request Blood</h1>
+
+<h4>BloodRequest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="bloodRequest.BloodGroup" class="control-label"></label>
+                <select asp-for="bloodRequest.BloodGroup"
+                        class="form-control"
+                        asp-items="Html.GetEnumSelectList<BloodBank.Models.BloodGroup>()">
+                    <option>Select BloodGroup ...</option>
+                </select>
+                <span asp-validation-for="bloodRequest.BloodGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bloodRequest.Quantity" class="control-label"></label>
+                <input asp-for="bloodRequest.Quantity" class="form-control" />
+                <span asp-validation-for="bloodRequest.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bloodRequest.Age" class="control-label"></label>
+                <input asp-for="bloodRequest.Age" class="form-control" />
+                <span asp-validation-for="bloodRequest.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bloodRequest.Reason" class="control-label"></label>
+                <input asp-for="bloodRequest.Reason" class="form-control" />
+                <span asp-validation-for="bloodRequest.Reason" class="text-danger"></span>
+            </div>
+            
+
+            <div class="form-group">
+                <input type="submit" value="Request" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/UserHome">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

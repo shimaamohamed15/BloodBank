@@ -1,0 +1,68 @@
+﻿@page
+@model DonationHistoryModel
+
+@{
+    ViewData["Title"] = "DonationHistory";
+}
+
+<h1>DonationHistory</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Donations[0].AppUser.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Donations[0].Age)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.user.Donations[0].BloodGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Donations[0].Disease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Donations[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Donations[0].DateOfDonation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user.Donations[0].Status)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.user.Donations) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppUser.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodGroup)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Disease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfDonation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

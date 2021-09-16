@@ -1,0 +1,86 @@
+﻿@page
+@model BloodBank.Areas.Admin.Pages.BloodRequestsModel
+
+@{
+    ViewData["Title"] = "BloodRequests";
+   }
+
+@if (ViewData["ReqError"] != null)
+{
+    <div class=" modelerr">
+        <p><strong>Error :</strong> @ViewData["ReqError"].ToString()</p>
+    </div>
+}
+<h1>BloodRequests</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].AppUser.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].AppUser.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].BloodGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].DateOfRequest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodRequest[0].Status)
+            </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.BloodRequest)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppUser.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppUser.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfRequest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+
+                <td id="RAction">
+                    <form method="post" asp-page="/BloodRequests">
+                        <input type="submit" class="btn btn-primary" value="Approve" asp-route-id="@item.Id" asp-page-handler="Approve"  />
+                        <input type="submit" class="btn btn-danger" value="Reject" asp-route-id="@item.Id" asp-page-handler="Reject"  />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

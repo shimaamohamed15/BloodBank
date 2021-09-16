@@ -1,0 +1,33 @@
+﻿@page
+@model BloodBank.Pages.ShowStockModel
+
+@{
+    ViewData["Title"] = "ShowStock";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<section class="AdminHome">
+    <div class="container">
+        <div class="row ">
+            @foreach (var item in Model.BloodStock)
+            {
+                <div class="col-md-3 col-sm-6  BloodGroup">
+                    <div class="p-5">
+                        @{
+
+                            string imgName = item.BloodGroup + ".jpg";
+                        }
+                        <img src="~/assets/img/@imgName" alt="" style="width:100%;height:100%; border-radius:50%; border:1px solid">
+                        <div class="text-center pt-1">
+                            <p class="fw-bold">@Html.DisplayFor(modelItem => item.BloodGroup)</p>
+                            <p>@Html.DisplayFor(modelItem => item.Quantity)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+    </div>
+</section>

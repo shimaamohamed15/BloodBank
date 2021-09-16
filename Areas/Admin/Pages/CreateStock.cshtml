@@ -1,0 +1,47 @@
+﻿@page
+@model BloodBank.Areas.Admin.Pages.CreateStockModel
+
+@{
+    ViewData["Title"] = "CreateStock";
+}
+
+@if (ViewData["Error"] != null)
+{
+    <div  class=" modelerr">
+        <p><strong>Error :</strong> @ViewData["Error"].ToString()</p>
+    </div>
+}
+
+<h1>CreateStock</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BloodStock.BloodGroup" class="control-label"></label>
+                <select asp-for="BloodStock.BloodGroup" class="form-control" asp-items="Html.GetEnumSelectList<BloodBank.Models.BloodGroup>()">
+                    <option>Select BloodGroup ...</option>
+                </select>
+                <span asp-validation-for="BloodStock.BloodGroup" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BloodStock.Quantity" class="control-label"></label>
+                <input asp-for="BloodStock.Quantity" class="form-control" />
+                <span asp-validation-for="BloodStock.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

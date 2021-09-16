@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    Layout = "~/Pages/Shared/_IdentityLayout.cshtml";
+
+}
+
+
+<div class="text-center">
+
+       <p class="headOfPage"> welcome to <Span>blood bank </Span> </p>
+       <div class="content">
+           <a class="btn btn-lg " id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+
+
+           <a class="btn btn-lg " id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+
+       </div>
+                </div>
+   
+
+
+
+
